@@ -46,5 +46,9 @@ public class ProdutoController {
 	public List<Produto> findStream(){
 		return service.funcaoStream();
 	}
+
+	@GetMapping("/reduce")
+	public List<Integer> reduce(){return service.numeros();}
+
 	
 }

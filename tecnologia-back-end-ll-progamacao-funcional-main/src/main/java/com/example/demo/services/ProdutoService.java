@@ -1,10 +1,7 @@
 package com.example.demo.services;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -132,4 +129,13 @@ public class ProdutoService {
 		    Map<Object, Boolean> seen = new ConcurrentHashMap<>(); 
 		    return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null; 
 		}
+
+	public List<Integer> numeros(){
+		List<Integer> numeros = Arrays.asList(1,2,3,4,5);
+
+		int soma = numeros.stream().reduce(0,(a,b)-> a+b);
+
+		return Collections.singletonList(soma);
+	}
+
 }
